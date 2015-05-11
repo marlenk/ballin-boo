@@ -34,6 +34,8 @@ namespace WindowsFormApplication1 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^  koniec;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,13 +50,34 @@ namespace WindowsFormApplication1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Form1";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->koniec = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// koniec
+			// 
+			this->koniec->Location = System::Drawing::Point(110, 146);
+			this->koniec->Name = L"koniec";
+			this->koniec->Size = System::Drawing::Size(75, 23);
+			this->koniec->TabIndex = 0;
+			this->koniec->Text = L"koniec";
+			this->koniec->UseVisualStyleBackColor = true;
+			this->koniec->Click += gcnew System::EventHandler(this, &Form1::koniec_Click);
+			// 
+			// Form1
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(284, 262);
+			this->Controls->Add(this->koniec);
+			this->Name = L"Form1";
+			this->Text = L"Form1";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
+	private: System::Void koniec_Click(System::Object^  sender, System::EventArgs^  e) {
+		Close();
+	}
 	};
 }
 
